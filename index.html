@@ -60,33 +60,44 @@
 
 <script>
 
-
+//generate random number
 function randomNumberChange(){
-const randomNumber = Math.round(Math.random()*9999);
-document.getElementById('generate-number').value = randomNumber;
-}
+        const randomNumber = Math.round(Math.random()*9999);
+        document.getElementById('generate-number').value = randomNumber;
+        }
 
+//display number and clear button
 function numberPad(id){
-let number = document.getElementById(id).innerText;
-document.getElementById('display-number').value += number;
-if (id == 'clear'){
-    document.getElementById('display-number').value = '';  
-}
-}
+        let number = document.getElementById(id).innerText;
+        document.getElementById('display-number').value += number;
+        if (id == 'clear'){
+        document.getElementById('display-number').value = '';
+        displayAlert(); 
+        }
+        }
 
+//backspace button
 function backspace(){
-    let backSpace = document.getElementById('display-number').value;
-    document.getElementById('display-number').value = backSpace.slice(0, -1);
-}
+        let backSpace = document.getElementById('display-number').value;
+        document.getElementById('display-number').value = backSpace.slice(0, -1);
+        displayAlert();
+        }
 
+//submit button functionality
 function submit(){
-    if (document.getElementById('generate-number').value == document.getElementById('display-number').value){
+        if (document.getElementById('generate-number').value == document.getElementById('display-number').value){
         document.getElementById('pin-match').style.display = 'block';  
-    }
-    else{
+        }
+        else{
         document.getElementById('pin-notmatch').style.display = 'block'; 
-    }
-}
+        }
+        }
+
+//hide alert for backspace and clear button
+        function displayAlert(){
+        document.getElementById('pin-match').style.display = 'none';
+        document.getElementById('pin-notmatch').style.display = 'none';
+        }
 
 </script>
 
